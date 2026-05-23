@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHOOSE ONE – Ebook Store</title>
+<title>CHOOSE ONE – The Psychology Behind Your Choices</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -11,13 +11,15 @@
   .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 20% 20%, #1a1035 0%, #0d0b18 60%); z-index: 0; }
   .stars::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4) 0%, transparent 100%), radial-gradient(1px 1px at 30% 40%, rgba(255,255,255,0.3) 0%, transparent 100%), radial-gradient(1px 1px at 60% 10%, rgba(255,255,255,0.35) 0%, transparent 100%), radial-gradient(1px 1px at 80% 60%, rgba(255,255,255,0.25) 0%, transparent 100%), radial-gradient(1px 1px at 50% 80%, rgba(255,255,255,0.3) 0%, transparent 100%); }
   .page { position: relative; z-index: 1; }
+
   nav { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2rem; border-bottom: 1px solid rgba(255,215,100,0.12); backdrop-filter: blur(8px); background: rgba(13,11,24,0.6); position: sticky; top: 0; z-index: 100; }
   .nav-brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.04em; color: #ffd764; }
   .nav-links { display: flex; gap: 2rem; }
   .nav-links a { color: rgba(232,227,240,0.6); font-size: 0.85rem; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
-  .nav-links a:hover { color: #ffd7W64; }
+  .nav-links a:hover { color: #ffd764; }
   .nav-cta { background: #ffd764; color: #0d0b18; padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.8rem; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; transition: opacity 0.2s; }
   .nav-cta:hover { opacity: 0.85; }
+
   .hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 4rem; }
   .hero-text { display: flex; flex-direction: column; gap: 1.5rem; }
   .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,215,100,0.1); border: 1px solid rgba(255,215,100,0.25); color: #ffd764; font-size: 0.75rem; padding: 0.4rem 1rem; border-radius: 100px; letter-spacing: 0.08em; text-transform: uppercase; width: fit-content; }
@@ -26,11 +28,13 @@
   .hero-subtitle { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: rgba(232,227,240,0.7); font-style: italic; line-height: 1.6; }
   .hero-tagline { font-size: 0.85rem; color: rgba(232,227,240,0.5); letter-spacing: 0.04em; line-height: 1.7; }
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
   .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: #ffd764; color: #0d0b18; padding: 0.85rem 2rem; border-radius: 100px; font-size: 0.9rem; font-weight: 500; text-decoration: none; letter-spacing: 0.02em; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 0 30px rgba(255,215,100,0.25); cursor: pointer; border: none; }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(255,215,100,0.4); }
   .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(232,227,240,0.2); color: rgba(232,227,240,0.7); padding: 0.85rem 1.5rem; border-radius: 100px; font-size: 0.85rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; cursor: pointer; background: transparent; }
   .btn-ghost:hover { border-color: #ffd764; color: #ffd764; }
-  .hero-book { display: flex; justify-content: center; align-items: center; position: relative; }
+
+  .hero-book { display: flex; justify-content: center; align-items: center; }
   .book-wrap { width: 280px; height: 380px; background: linear-gradient(135deg, #1e1535 0%, #2d2050 50%, #1a1030 100%); border-radius: 8px 20px 20px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1.5rem; box-shadow: -8px 0 0 rgba(0,0,0,0.4), -12px 6px 20px rgba(0,0,0,0.5), 0 0 60px rgba(255,215,100,0.08), inset 4px 0 20px rgba(255,255,255,0.03); position: relative; animation: float 4s ease-in-out infinite; border-left: 6px solid rgba(0,0,0,0.5); }
   @keyframes float { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(-1deg); } }
   .book-glow { position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: radial-gradient(ellipse at 50% 60%, rgba(180,100,255,0.2) 0%, transparent 70%); border-radius: inherit; pointer-events: none; }
@@ -42,22 +46,23 @@
   .book-figure::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 18px; height: 44px; background: rgba(255,255,255,0.15); clip-path: polygon(30% 0%, 70% 0%, 85% 100%, 15% 100%); border-radius: 2px; }
   .book-figure::after { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 12px; height: 12px; background: rgba(255,255,255,0.2); border-radius: 50%; }
   .book-bottom { font-size: 0.55rem; color: rgba(232,227,240,0.3); text-align: center; margin-top: 0.5rem; letter-spacing: 0.06em; }
+
   .features { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
   .feat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,215,100,0.1); border-radius: 16px; padding: 1.5rem 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.2s, background 0.2s; }
   .feat-card:hover { border-color: rgba(255,215,100,0.3); background: rgba(255,215,100,0.04); }
   .feat-icon { width: 40px; height: 40px; background: rgba(255,215,100,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
   .feat-label { font-size: 0.75rem; font-weight: 500; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; }
   .feat-desc { font-size: 0.78rem; color: rgba(232,227,240,0.5); line-height: 1.6; }
-  .about { max-width: 1100px; margin: 0 auto; padding: 2rem 2rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+
+  .about { max-width: 1100px; margin: 0 auto; padding: 2rem 2rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
   .about-text { display: flex; flex-direction: column; gap: 1.25rem; }
   .section-label { font-size: 0.7rem; color: #ffd764; letter-spacing: 0.12em; text-transform: uppercase; }
   .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: #fff; line-height: 1.2; }
   .about-body { font-size: 0.88rem; color: rgba(232,227,240,0.6); line-height: 1.8; }
   .checklist { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
   .check-item { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.85rem; color: rgba(232,227,240,0.75); }
-  .check-icon { color: #ffd764; margin-top: 2px; flex-shrink: 0; font-size: 0.75rem; }
+  .check-icon { color: #ffd764; margin-top: 2px; flex-shrink: 0; }
 
-  /* PAYMENT CARD */
   .about-price { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,215,100,0.15); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; align-items: center; text-align: center; }
   .price-label { font-size: 0.75rem; color: rgba(232,227,240,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
   .price-amount { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: #ffd764; line-height: 1; }
@@ -66,23 +71,19 @@
   .price-feature { display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; color: rgba(232,227,240,0.7); padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.02); }
   .price-feature-dot { width: 6px; height: 6px; background: #ffd764; border-radius: 50%; flex-shrink: 0; }
 
-  /* PAYPAL SECTION */
   .paypal-section { width: 100%; border-top: 1px solid rgba(255,215,100,0.1); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
   .pay-label { font-size: 0.7rem; color: rgba(232,227,240,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
-  .paypal-btn-wrap { width: 100%; }
-  .paypal-btn-wrap form { width: 100% !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 0.5rem !important; }
-  .paypal-btn-wrap .pp-W32XTR8JADTE6 { width: 100% !important; border-radius: 100px !important; font-size: 0.95rem !important; height: 2.8rem !important; }
+  .pp-W32XTR8JADTE6 { text-align:center; border:none; border-radius:100px; min-width:100%; padding:0 2rem; height:2.8rem; font-weight:bold; background-color:#FFD140; color:#000000; font-family:"Helvetica Neue",Arial,sans-serif; font-size:1rem; line-height:1.25rem; cursor:pointer; width: 100%; }
+  .pp-form { display:flex; flex-direction:column; align-items:center; gap:0.5rem; width:100%; }
 
-  /* QR SECTION */
-  .qr-section { width: 100%; border-top: 1px solid rgba(255,215,100,0.1); padding-top: 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
-  .qr-label { font-size: 0.7rem; color: rgba(232,227,240,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
-  .qr-img { width: 120px; height: 120px; border-radius: 12px; background: #fff; padding: 6px; }
-  .qr-caption { font-size: 0.72rem; color: rgba(232,227,240,0.35); }
-
-  /* OR DIVIDER */
   .or-divider { display: flex; align-items: center; gap: 0.75rem; width: 100%; }
   .or-line { flex: 1; height: 1px; background: rgba(255,215,100,0.1); }
   .or-text { font-size: 0.7rem; color: rgba(232,227,240,0.3); letter-spacing: 0.06em; }
+
+  .qr-section { width: 100%; border-top: 1px solid rgba(255,215,100,0.1); padding-top: 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+  .qr-label { font-size: 0.7rem; color: rgba(232,227,240,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
+  .qr-img { width: 130px; height: 130px; border-radius: 12px; background: #fff; padding: 8px; }
+  .qr-caption { font-size: 0.72rem; color: rgba(232,227,240,0.35); }
 
   .reviews { background: rgba(255,215,100,0.03); border-top: 1px solid rgba(255,215,100,0.08); border-bottom: 1px solid rgba(255,215,100,0.08); padding: 4rem 2rem; }
   .reviews-inner { max-width: 1100px; margin: 0 auto; }
@@ -92,29 +93,29 @@
   .review-stars { color: #ffd764; font-size: 0.85rem; letter-spacing: 2px; }
   .review-text { font-size: 0.85rem; color: rgba(232,227,240,0.7); line-height: 1.7; font-style: italic; }
   .review-name { font-size: 0.78rem; font-weight: 500; color: rgba(232,227,240,0.5); }
+
   .bonus { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; text-align: center; display: flex; flex-direction: column; gap: 2rem; align-items: center; }
   .bonus-box { background: rgba(255,215,100,0.06); border: 1px solid rgba(255,215,100,0.2); border-radius: 20px; padding: 2rem 3rem; width: 100%; }
   .bonus-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #ffd764; margin-bottom: 0.75rem; }
   .bonus-list { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; }
   .bonus-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: rgba(232,227,240,0.7); }
+
   .cta { text-align: center; padding: 5rem 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
   .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; color: #fff; line-height: 1.1; }
   .cta-title span { color: #ffd764; }
   .cta-sub { font-size: 0.9rem; color: rgba(232,227,240,0.5); max-width: 500px; }
-
-  /* CTA PayPal */
   .cta-paypal { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,215,100,0.15); border-radius: 20px; padding: 2rem; max-width: 380px; width: 100%; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
-  .cta-paypal form { width: 100% !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 0.5rem !important; }
-  .cta-paypal .pp-W32XTR8JADTE6 { width: 100% !important; border-radius: 100px !important; }
 
   footer { border-top: 1px solid rgba(255,215,100,0.08); padding: 2rem; text-align: center; font-size: 0.75rem; color: rgba(232,227,240,0.3); letter-spacing: 0.06em; text-transform: uppercase; }
 
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     .hero { grid-template-columns: 1fr; padding: 3rem 1.25rem; gap: 2.5rem; }
-    .features { grid-template-columns: 1fr 1fr; }
+    .features { grid-template-columns: 1fr 1fr; padding: 2rem 1.25rem; }
     .about { grid-template-columns: 1fr; padding: 2rem 1.25rem; gap: 2rem; }
     .reviews-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
+    .bonus-box { padding: 1.5rem; }
+    .bonus-list { flex-direction: column; gap: 0.75rem; }
   }
 </style>
 </head>
@@ -122,16 +123,18 @@
 <div class="stars"></div>
 <div class="page">
 
+  <!-- NAV -->
   <nav>
     <div class="nav-brand">A.E. Books</div>
     <div class="nav-links">
-      <a href="#">About</a>
-      <a href="#">Preview</a>
-      <a href="#">Reviews</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#buy">Buy</a>
     </div>
     <a href="https://www.paypal.com/ncp/payment/W32XTR8JADTE6" class="nav-cta" target="_blank">Buy Now →</a>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
       <div class="hero-badge">✦ Digital Ebook · Instant Access</div>
@@ -140,7 +143,7 @@
       <p class="hero-tagline">A short, powerful guide to understanding your personality, emotions, and life direction — written to change how you see every decision you make.</p>
       <div class="hero-actions">
         <a href="https://www.paypal.com/ncp/payment/W32XTR8JADTE6" class="btn-primary" target="_blank">⬇ Get Instant Access</a>
-        <button class="btn-ghost" onclick="document.querySelector('.about').scrollIntoView({behavior:'smooth'})">Read more ↓</button>
+        <button class="btn-ghost" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">Read more ↓</button>
       </div>
     </div>
     <div class="hero-book">
@@ -156,6 +159,7 @@
     </div>
   </section>
 
+  <!-- FEATURES -->
   <div class="features">
     <div class="feat-card"><div class="feat-icon">⬇</div><div class="feat-label">Instant Download</div><div class="feat-desc">Get access immediately after purchase, directly to your device.</div></div>
     <div class="feat-card"><div class="feat-icon">📄</div><div class="feat-label">PDF Format</div><div class="feat-desc">Read on your phone, tablet, laptop — anywhere, anytime.</div></div>
@@ -163,7 +167,8 @@
     <div class="feat-card"><div class="feat-icon">🧠</div><div class="feat-label">Self-Awareness</div><div class="feat-desc">Understand your personality, your patterns, your decisions.</div></div>
   </div>
 
-  <section class="about">
+  <!-- ABOUT + PRICE -->
+  <section class="about" id="about">
     <div class="about-text">
       <div class="section-label">✦ What you'll discover</div>
       <h2 class="section-title">Small Book.<br>Big Impact.</h2>
@@ -177,7 +182,8 @@
       </div>
     </div>
 
-    <div class="about-price">
+    <!-- PRICE + PAYMENT CARD -->
+    <div class="about-price" id="buy">
       <div class="price-label">One-time price</div>
       <div class="price-amount">$7</div>
       <div class="price-note">Instant PDF delivery · No subscription</div>
@@ -190,15 +196,12 @@
 
       <!-- PayPal Button -->
       <div class="paypal-section">
-        <div class="pay-label">💳 Pay securely with PayPal</div>
-        <div class="paypal-btn-wrap">
-          <style>.pp-W32XTR8JADTE6{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-          <form action="https://www.paypal.com/ncp/payment/W32XTR8JADTE6" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;width:100%;">
-            <input class="pp-W32XTR8JADTE6" type="submit" value="Buy Now – $7" style="width:100%;border-radius:100px;" />
-            <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="cards" />
-            <section style="font-size: 0.75rem;color:rgba(232,227,240,0.4);">Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;filter:brightness(2);"/></section>
-          </form>
-        </div>
+        <div class="pay-label">💳 Pay securely with PayPal or Card</div>
+        <form action="https://www.paypal.com/ncp/payment/W32XTR8JADTE6" method="post" target="_blank" class="pp-form">
+          <input class="pp-W32XTR8JADTE6" type="submit" value="Buy Now – $7" />
+          <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="Accepted cards" />
+          <section style="font-size:0.75rem;color:rgba(232,227,240,0.4);">Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" style="height:0.875rem;vertical-align:middle;filter:brightness(10);opacity:0.5;"/></section>
+        </form>
       </div>
 
       <!-- OR divider -->
@@ -210,14 +213,16 @@
 
       <!-- QR Code -->
       <div class="qr-section">
-        <div class="qr-label">📱 Scan QR Code</div>
-        <img class="qr-img" src="/mnt/user-data/uploads/E-book-qrcode.png" alt="PayPal QR Code for CHOOSE ONE ebook" />
-        <div class="qr-caption">Scan with your phone camera to pay instantly</div>
+        <div class="qr-label">📱 Scan with your phone</div>
+        <!-- Make sure E-book-qrcode.png is in the same folder as this index.html -->
+        <img class="qr-img" src="E-book-qrcode.png" alt="PayPal QR Code – CHOOSE ONE ebook" />
+        <div class="qr-caption">Scan to pay instantly on mobile</div>
       </div>
     </div>
   </section>
 
-  <div class="reviews">
+  <!-- REVIEWS -->
+  <div class="reviews" id="reviews">
     <div class="reviews-inner">
       <div class="reviews-header">
         <div class="section-label" style="margin-bottom:0.75rem;">✦ What readers say</div>
@@ -231,6 +236,7 @@
     </div>
   </div>
 
+  <!-- BONUS -->
   <div class="bonus">
     <div class="section-label">✦ Included free with your purchase</div>
     <div class="bonus-box">
@@ -243,25 +249,25 @@
     </div>
   </div>
 
+  <!-- FINAL CTA -->
   <div class="cta">
     <div class="section-label">✦ Your future starts with one choice</div>
     <h2 class="cta-title">Read Tonight.<br><span>Transform Tomorrow.</span></h2>
     <p class="cta-sub">15 minutes from now, you could understand yourself better than you ever have.</p>
-
     <div class="cta-paypal">
       <div style="font-size:0.8rem;color:rgba(232,227,240,0.5);">Get instant access for just</div>
       <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#ffd764;">$7</div>
-      <form action="https://www.paypal.com/ncp/payment/W32XTR8JADTE6" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;width:100%;">
-        <input class="pp-W32XTR8JADTE6" type="submit" value="⬇ Buy Now – PayPal" style="width:100%;border-radius:100px;font-size:1rem;height:3rem;" />
-        <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="cards" />
-        <section style="font-size: 0.75rem;color:rgba(232,227,240,0.4);">Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;filter:brightness(2);"/></section>
+      <form action="https://www.paypal.com/ncp/payment/W32XTR8JADTE6" method="post" target="_blank" class="pp-form">
+        <input class="pp-W32XTR8JADTE6" type="submit" value="⬇ Buy Now – PayPal" style="font-size:1rem;height:3rem;" />
+        <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="Accepted cards" />
+        <section style="font-size:0.75rem;color:rgba(232,227,240,0.4);">Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" style="height:0.875rem;vertical-align:middle;filter:brightness(10);opacity:0.5;"/></section>
       </form>
-      <div style="display:flex;align-items:center;gap:0.75rem;width:100%;">
-        <div style="flex:1;height:1px;background:rgba(255,215,100,0.1);"></div>
-        <div style="font-size:0.7rem;color:rgba(232,227,240,0.3);">or scan</div>
-        <div style="flex:1;height:1px;background:rgba(255,215,100,0.1);"></div>
+      <div class="or-divider">
+        <div class="or-line"></div>
+        <div class="or-text">or scan</div>
+        <div class="or-line"></div>
       </div>
-      <img class="qr-img" src="/mnt/user-data/uploads/E-book-qrcode.png" alt="QR Code" style="width:100px;height:100px;" />
+      <img src="E-book-qrcode.png" alt="QR Code" style="width:110px;height:110px;border-radius:10px;background:#fff;padding:6px;" />
       <div style="font-size:0.72rem;color:rgba(232,227,240,0.3);">Scan to pay instantly on mobile</div>
     </div>
   </div>
