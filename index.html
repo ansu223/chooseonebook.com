@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>CHOOSE ONE – The Psychology Behind Your Choices</title>
+<!-- Preconnect & Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,7 +18,7 @@
   .nav-links { display: flex; gap: 2rem; }
   .nav-links a { color: rgba(232,227,240,0.6); font-size: 0.85rem; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: #ffd764; }
-  .nav-cta { background: #ffd764; color: #0d0b18; padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.8rem; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; transition: opacity 0.2s; }
+  .nav-cta { background: #ffd764; color: #0d0b18; padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.8rem; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; transition: opacity 0.2s; display: inline-block; }
   .nav-cta:hover { opacity: 0.85; }
 
   .hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 4rem; }
@@ -71,20 +72,16 @@
   .price-feature { display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; color: rgba(232,227,240,0.7); padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.02); }
   .price-feature-dot { width: 6px; height: 6px; background: #ffd764; border-radius: 50%; flex-shrink: 0; }
 
-  .paypal-section { width: 100%; border-top: 1px solid rgba(255,215,100,0.1); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
-  .pay-label { font-size: 0.7rem; color: rgba(232,227,240,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
-  .pp-W32XTR8JADTE6 { text-align:center; border:none; border-radius:100px; min-width:100%; padding:0 2rem; height:2.8rem; font-weight:bold; background-color:#FFD140; color:#000000; font-family:"Helvetica Neue",Arial,sans-serif; font-size:1rem; line-height:1.25rem; cursor:pointer; width: 100%; }
-  .pp-form { display:flex; flex-direction:column; align-items:center; gap:0.5rem; width:100%; }
-
-  .or-divider { display: flex; align-items: center; gap: 0.75rem; width: 100%; }
-  .or-line { flex: 1; height: 1px; background: rgba(255,215,100,0.1); }
-  .or-text { font-size: 0.7rem; color: rgba(232,227,240,0.3); letter-spacing: 0.06em; }
-
-  .qr-section { width: 100%; border-top: 1px solid rgba(255,215,100,0.1); padding-top: 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
-  .qr-label { font-size: 0.7rem; color: rgba(232,227,240,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
-  .qr-img { width: 130px; height: 130px; border-radius: 12px; background: #fff; padding: 8px; }
-  .qr-caption { font-size: 0.72rem; color: rgba(232,227,240,0.35); }
-
+  /* Clean buy buttons - no platform naming */
+  .buy-button { 
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: #ffd764; color: #0d0b18; padding: 0.9rem 1.8rem; border-radius: 100px; 
+    font-weight: 600; font-size: 1rem; text-decoration: none; width: 100%; border: none;
+    transition: transform 0.2s, background 0.2s; cursor: pointer; font-family: 'DM Sans', sans-serif;
+  }
+  .buy-button:hover { background: #ffde85; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(255,215,100,0.2); }
+  .secure-badge { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.7rem; color: rgba(232,227,240,0.4); margin-top: 0.5rem; }
+  
   .reviews { background: rgba(255,215,100,0.03); border-top: 1px solid rgba(255,215,100,0.08); border-bottom: 1px solid rgba(255,215,100,0.08); padding: 4rem 2rem; }
   .reviews-inner { max-width: 1100px; margin: 0 auto; }
   .reviews-header { text-align: center; margin-bottom: 2.5rem; }
@@ -104,7 +101,7 @@
   .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; color: #fff; line-height: 1.1; }
   .cta-title span { color: #ffd764; }
   .cta-sub { font-size: 0.9rem; color: rgba(232,227,240,0.5); max-width: 500px; }
-  .cta-paypal { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,215,100,0.15); border-radius: 20px; padding: 2rem; max-width: 380px; width: 100%; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+  .cta-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,215,100,0.15); border-radius: 20px; padding: 2rem; max-width: 380px; width: 100%; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
 
   footer { border-top: 1px solid rgba(255,215,100,0.08); padding: 2rem; text-align: center; font-size: 0.75rem; color: rgba(232,227,240,0.3); letter-spacing: 0.06em; text-transform: uppercase; }
 
@@ -131,7 +128,8 @@
       <a href="#reviews">Reviews</a>
       <a href="#buy">Buy</a>
     </div>
-    <a href="https://www.paypal.com/ncp/payment/W32XTR8JADTE6" class="nav-cta" target="_blank">Buy Now →</a>
+    <!-- Direct product link (clean, no platform mention) -->
+    <a href="https://psychebooks-shop.fourthwall.com/products/choose-one-the-psychology-behind-your-choices" class="nav-cta" target="_blank" rel="noopener noreferrer">Buy Now →</a>
   </nav>
 
   <!-- HERO -->
@@ -140,9 +138,9 @@
       <div class="hero-badge">✦ Digital Ebook · Instant Access</div>
       <h1 class="hero-title">CHOOSE<br><span>ONE.</span></h1>
       <p class="hero-subtitle">The Psychology Behind Your Choices</p>
-      <p class="hero-tagline">A short, powerful guide to understanding your personality, emotions, and life direction — written to change how you see every decision you make.</p>
+      <p class="hero-tagline">A short, powerful guide to understanding your personality, emotions, and life direction — written to change how you see every decision you make. Secure checkout, automatic PDF delivery.</p>
       <div class="hero-actions">
-        <a href="https://www.paypal.com/ncp/payment/W32XTR8JADTE6" class="btn-primary" target="_blank">⬇ Get Instant Access</a>
+        <a href="https://psychebooks-shop.fourthwall.com/products/choose-one-the-psychology-behind-your-choices" class="btn-primary" target="_blank" rel="noopener noreferrer">⬇ Get Instant Access</a>
         <button class="btn-ghost" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">Read more ↓</button>
       </div>
     </div>
@@ -161,13 +159,13 @@
 
   <!-- FEATURES -->
   <div class="features">
-    <div class="feat-card"><div class="feat-icon">⬇</div><div class="feat-label">Instant Download</div><div class="feat-desc">Get access immediately after purchase, directly to your device.</div></div>
+    <div class="feat-card"><div class="feat-icon">⚡</div><div class="feat-label">Instant Download</div><div class="feat-desc">Get access immediately after purchase, directly to your device.</div></div>
     <div class="feat-card"><div class="feat-icon">📄</div><div class="feat-label">PDF Format</div><div class="feat-desc">Read on your phone, tablet, laptop — anywhere, anytime.</div></div>
     <div class="feat-card"><div class="feat-icon">⏱</div><div class="feat-label">15-Minute Read</div><div class="feat-desc">Quick, powerful, and life-changing. No fluff, just insight.</div></div>
     <div class="feat-card"><div class="feat-icon">🧠</div><div class="feat-label">Self-Awareness</div><div class="feat-desc">Understand your personality, your patterns, your decisions.</div></div>
   </div>
 
-  <!-- ABOUT + PRICE -->
+  <!-- ABOUT + PRICE SECTION (Buy Now button, price shown, no platform mention) -->
   <section class="about" id="about">
     <div class="about-text">
       <div class="section-label">✦ What you'll discover</div>
@@ -182,41 +180,33 @@
       </div>
     </div>
 
-    <!-- PRICE + PAYMENT CARD -->
+    <!-- PRICE + PURCHASE CARD (Only price and buy button, no external platform name) -->
     <div class="about-price" id="buy">
-      <div class="price-label">One-time price</div>
-      <div class="price-amount">$7</div>
-      <div class="price-note">Instant PDF delivery · No subscription</div>
+      <div class="price-label">Special launch price</div>
+      <div class="price-amount">$2.99</div>
+      <div class="price-note">Instant PDF delivery · No subscription · Secure checkout</div>
       <div class="price-features">
         <div class="price-feature"><div class="price-feature-dot"></div> CHOOSE ONE – Full Ebook (PDF)</div>
         <div class="price-feature"><div class="price-feature-dot"></div> Reflection Questions Bonus</div>
         <div class="price-feature"><div class="price-feature-dot"></div> Self-Discovery Guide Bonus</div>
-        <div class="price-feature"><div class="price-feature-dot"></div> Lifetime access</div>
+        <div class="price-feature"><div class="price-feature-dot"></div> Lifetime access & automatic updates</div>
       </div>
 
-      <!-- PayPal Button -->
-      <div class="paypal-section">
-        <div class="pay-label">💳 Pay securely with PayPal or Card</div>
-        <form action="https://www.paypal.com/ncp/payment/W32XTR8JADTE6" method="post" target="_blank" class="pp-form">
-          <input class="pp-W32XTR8JADTE6" type="submit" value="Buy Now – $7" />
-          <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="Accepted cards" />
-          <section style="font-size:0.75rem;color:rgba(232,227,240,0.4);">Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" style="height:0.875rem;vertical-align:middle;filter:brightness(10);opacity:0.5;"/></section>
-        </form>
+      <!-- Buy Now button - direct to product, clean CTA -->
+      <div style="width:100%; margin-top: 0.25rem;">
+        <a href="https://psychebooks-shop.fourthwall.com/products/choose-one-the-psychology-behind-your-choices" target="_blank" rel="noopener noreferrer" class="buy-button">
+          🛒 Buy Now – $2.99
+        </a>
+        <div class="secure-badge">
+          <span>🔒 SSL Secure Checkout</span>
+          <span>•</span>
+          <span>📩 Auto PDF delivery</span>
+          <span>•</span>
+          <span>💳 Card / PayPal accepted</span>
+        </div>
       </div>
-
-      <!-- OR divider -->
-      <div class="or-divider">
-        <div class="or-line"></div>
-        <div class="or-text">or scan to pay</div>
-        <div class="or-line"></div>
-      </div>
-
-      <!-- QR Code -->
-      <div class="qr-section">
-        <div class="qr-label">📱 Scan with your phone</div>
-        <!-- Make sure E-book-qrcode.png is in the same folder as this index.html -->
-        <img class="qr-img" src="E-book-qrcode.png" alt="PayPal QR Code – CHOOSE ONE ebook" />
-        <div class="qr-caption">Scan to pay instantly on mobile</div>
+      <div style="font-size:0.7rem; color:rgba(232,227,240,0.35); margin-top: 0.5rem; border-top: 1px solid rgba(255,215,100,0.1); padding-top: 1rem;">
+        ✦ 100% safe purchase · Instant access after checkout
       </div>
     </div>
   </section>
@@ -249,32 +239,29 @@
     </div>
   </div>
 
-  <!-- FINAL CTA -->
+  <!-- FINAL CTA - only price and buy button, zero platform mention -->
   <div class="cta">
     <div class="section-label">✦ Your future starts with one choice</div>
     <h2 class="cta-title">Read Tonight.<br><span>Transform Tomorrow.</span></h2>
     <p class="cta-sub">15 minutes from now, you could understand yourself better than you ever have.</p>
-    <div class="cta-paypal">
+    <div class="cta-card">
       <div style="font-size:0.8rem;color:rgba(232,227,240,0.5);">Get instant access for just</div>
-      <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#ffd764;">$7</div>
-      <form action="https://www.paypal.com/ncp/payment/W32XTR8JADTE6" method="post" target="_blank" class="pp-form">
-        <input class="pp-W32XTR8JADTE6" type="submit" value="⬇ Buy Now – PayPal" style="font-size:1rem;height:3rem;" />
-        <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="Accepted cards" />
-        <section style="font-size:0.75rem;color:rgba(232,227,240,0.4);">Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" style="height:0.875rem;vertical-align:middle;filter:brightness(10);opacity:0.5;"/></section>
-      </form>
-      <div class="or-divider">
-        <div class="or-line"></div>
-        <div class="or-text">or scan</div>
-        <div class="or-line"></div>
+      <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#ffd764;">$2.99</div>
+      <a href="https://psychebooks-shop.fourthwall.com/products/choose-one-the-psychology-behind-your-choices" target="_blank" rel="noopener noreferrer" class="buy-button" style="background:#ffd764; color:#0d0b18; text-decoration:none;">
+        ⬇ Buy Now – Secure Checkout
+      </a>
+      <div class="secure-badge" style="margin-top:0px;">
+        <span>🔐 Encrypted payment</span> <span>•</span> <span>📧 Automatic delivery</span>
       </div>
-      <img src="E-book-qrcode.png" alt="QR Code" style="width:110px;height:110px;border-radius:10px;background:#fff;padding:6px;" />
-      <div style="font-size:0.72rem;color:rgba(232,227,240,0.3);">Scan to pay instantly on mobile</div>
+      <div style="font-size:0.72rem; color:rgba(232,227,240,0.4);">After purchase, you'll receive the PDF + bonus materials instantly</div>
     </div>
   </div>
 
-  <footer>© 2026 A.E. Books · CHOOSE ONE · All rights reserved</footer>
+  <footer>
+    © 2026 A.E. Books · CHOOSE ONE · The Psychology Behind Your Choices · All rights reserved<br>
+    <a href="https://psychebooks-shop.fourthwall.com/pages/terms-of-service" target="_blank" style="color: rgba(232,227,240,0.4); text-decoration: none;">Terms</a> &nbsp;|&nbsp;
+    <a href="https://psychebooks-shop.fourthwall.com/pages/privacy-policy" target="_blank" style="color: rgba(232,227,240,0.4); text-decoration: none;">Privacy</a>
+  </footer>
 </div>
-
-<script src="https://www.paypal.com/sdk/js?client-id=BAAPKBiVzNbKIwCxQvEi8dVXqVqjML1Qbsb2J8miZJAMVoDTWE9o1whqnnkfTJbK2KziI7A5QOy8Fl68g0&components=hosted-buttons&disable-funding=venmo&currency=USD" crossorigin="anonymous" async></script>
 </body>
 </html>
